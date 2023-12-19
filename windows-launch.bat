@@ -1,15 +1,15 @@
 @echo off
 
-if not exist venv\windows_env (
-    python -m venv venv\windows_env
+if not exist venv (
+    python -m venv venv
 
-    call venv\windows_env\Scripts\activate.bat
+    call venv\Scripts\activate.bat
 
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
     
 ) else (
-    call venv\windows_env\Scripts\activate.bat
+    call venv\Scripts\activate.bat
 )
 
 python src\main.py

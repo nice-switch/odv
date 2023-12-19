@@ -24,3 +24,12 @@ TO BE CONTINUED
 
 TO BE CONTINUED
 
+# Python CLI Args
+> All arguments available with src/main.py.
+
+### Managing the database.
+* database ...
+    
+    * development
+    * production
+    * wipe
