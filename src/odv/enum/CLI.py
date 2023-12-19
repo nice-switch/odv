@@ -1,1 +1,0 @@
-valid_first_args: list[str] = ["database"]
