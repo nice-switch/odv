@@ -25,14 +25,14 @@ TO BE CONTINUED
 TO BE CONTINUED
 
 # Networking
-## Production Ports
+### Production Ports
 * Database
     * TCP 3555
 
 * Website
     * TCP 80
 
-## Development Ports
+### Development Ports
 * Database
     * TCP 8081
 
