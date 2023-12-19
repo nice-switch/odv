@@ -24,12 +24,29 @@ TO BE CONTINUED
 
 TO BE CONTINUED
 
+# Networking
+## Production Ports
+* Database
+    * TCP 3555
+
+* Website
+    * TCP 80
+
+## Development Ports
+* Database
+    * TCP 8081
+
+* Website
+    * TCP 8080
+
+
 # Python CLI Args
 > All arguments available with src/main.py.
 
 ### Managing the database.
 * database ...
-    
     * development
+
+        Launches database using development data and changes to the development API port.
     * production
     * wipe
