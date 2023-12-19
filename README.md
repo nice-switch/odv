@@ -25,6 +25,12 @@ TO BE CONTINUED
 TO BE CONTINUED
 
 # Networking
+> General networking information that you need to know about the project.
+
+To let others start using your service, forward the production ports.
+
+Forwarding development ports is not recommended, use a firewall with whitelist if you do.
+
 ### Production Ports
 * Database
     * TCP 3555
@@ -44,9 +50,6 @@ TO BE CONTINUED
 > All arguments available with src/main.py.
 
 ### Managing the database.
-* database ...
-    * development
+> Available args for managing the database.
 
-        Launches database using development data and changes to the development API port.
-    * production
-    * wipe
+TO BE CONTINUED

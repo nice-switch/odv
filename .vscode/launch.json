@@ -5,11 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Database",
+            "name": "DevDB",
             "type": "python",
             "request": "launch",
             "program": "./src/main.py",
-            "args": ["database"],
+            "args": ["database", "development"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "ProDB",
+            "type": "python",
+            "request": "launch",
+            "program": "./src/main.py",
+            "args": ["database", "production"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
