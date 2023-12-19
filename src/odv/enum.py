@@ -6,6 +6,7 @@ class ServiceType(StrEnum):
     GUARD = "guard"
     WEB = "web"
 
+
 class DatabaseType(StrEnum):
     DEVELOPMENT = "development"
     PRODUCTION = "production"

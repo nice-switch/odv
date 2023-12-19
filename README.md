@@ -31,21 +31,20 @@ To let others start using your service, forward the production ports.
 
 Forwarding development ports is not recommended, use a firewall with whitelist if you do.
 
-> Not sure what the common practice is with ports.
-> 
-### Production Ports
-* Database
-    * API, TCP 3555
+# Database API
 
-* Website
-    * Webserver, TCP 80
+### Production Ports
 
 ### Development Ports
-* Database
-    * API, TCP 8081
 
-* Website
-    * Webserver, TCP 8080
+---
+
+## Website API
+
+### Production Ports
+
+### Development Ports
+
 
 
 # Python CLI Args
@@ -61,3 +60,5 @@ TO BE CONTINUED
 > The final steps of your setup!
 
 TO BE CONTINUED
+
+This is starting to become a mess...
