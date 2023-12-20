@@ -21,7 +21,7 @@ cli_args: list[str] = len(sys.argv) > 2 and sys.argv[3::] or []
 
 match target_service:
     case odv.enum.ServiceType.DATABASE:
-
+        
         odv.initialize_database_service(
             database_type=odv.enum.DatabaseType.DEVELOPMENT
         )

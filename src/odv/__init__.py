@@ -12,8 +12,8 @@ def initialize_database_service(database_type: enum.DatabaseType) -> tuple[bool,
     print(database_type)
     
 
-def publish_database_service( api_port: enum.DatabasePort, api_host: enum.DatabaseHost) -> tuple[bool, str]:
-    """Use after initialize_database_service, pushes everything to the network.
+def publish_database_service(api_port: enum.DatabasePort, api_host: enum.DatabaseHost) -> tuple[bool, str]:
+    """Starts a new thread with uvicorn and runs the FastAPI instance made by initialize_database_service.
     
     Args:
         api_port (enum.DatabasePort): Target API port.
