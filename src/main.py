@@ -24,7 +24,11 @@ match target_service:
         print("Starting database service...")
         
         # TODO initialize_database_service shouldn't run everytime, will have to put into an arg.
-        odv.initialize_database_service()
+        odv.initialize_database_service(
+            database_type=odv.enum.DatabaseType.DEVELOPMENT,
+            api_port=odv.enum.DatabasePort.DEVELOPMENT,
+            api_host=odv.enum.DatabaseHost.MACHINE
+        )
         
         # TODO add args for publish that use the config files.
         odv.publish_database_service()
