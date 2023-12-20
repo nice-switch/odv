@@ -1,20 +1,22 @@
 import socket
 
 from enum import StrEnum, IntEnum
-
-class DatabaseType(StrEnum):
-    """Types of databases that are available to use."""
-    PRODUCTION = "production"
-    DEVELOPMENT = "development"
-    #EXPERIMENTAL = TODO load workspace/database.json
     
-
+    
 class ServiceType(StrEnum):
     """Types of services that are available to use."""
     DATABASE = "database"
     CLIENT = "client"
     GUARD = "guard"
     WEB = "web"
+
+
+class DatabaseType(StrEnum):
+    """Types of databases that are available to use."""
+    PRODUCTION = "production"
+    DEVELOPMENT = "development"
+    #EXPERIMENTAL = TODO load workspace/database.json
+
 
 # TODO add config loader for DatabaseHost & DatabasePort    
 class DatabaseHost(StrEnum):

@@ -2,7 +2,7 @@ import odv, sys
 
 # Checks for available args and grabs the first one if available.
 # NOTE sys.argv[0] is the file arg.
-target_service: str | None = len(sys.argv) >= 1 and sys.argv[1] or None
+target_service: str | None = len(sys.argv) > 1 and sys.argv[1] or None
 
 # Validity check for target_service, this should always be something!
 if (target_service is None):

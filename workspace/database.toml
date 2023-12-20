@@ -1,0 +1,9 @@
+# What ports the database API will be hosted on.
+[ports]
+production = 6000
+development = 6500
+
+# What IP the database API will be hosted on.
+[host]
+override = false
+target_host = "127.0.0.1"

@@ -11,7 +11,8 @@ def initialize_database_service(database_type: enum.DatabaseType) -> tuple[bool,
     Returns:
         tuple[bool, str]: Success/Failure, Status Message.
     """
-    print(database_type)
+    print(f"Initializing database, target: {database_type.name}")
+    
     
 
 def publish_database_service(api_port: enum.DatabasePort, api_host: enum.DatabaseHost) -> tuple[bool, str]:
