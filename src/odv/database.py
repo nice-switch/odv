@@ -1,17 +1,30 @@
 import fastapi, peewee
 
-# WARNING i do not know what i am doing. i wanna try something neat with classes...
-class BaseDatabase():
-    def __init__(self, database_id: str | None = None):
-        self.id: str = database_id
+from odv import enum
+from uuid import uuid4
 
-class DatabaseConnection(BaseDatabase):
-    def __init__(self, database_id: str | None = None):
-        BaseDatabase.__init__(
-            self,
-            database_id=database_id
-        )
+# WARNING i do not know what i am doing. i wanna try something neat with classes...        
+
+class DatabaseAPI():
+    def __init__(self, database_type: enum.DatabaseType):
+        self.type: enum.DatabaseType = database_type
+        self.fast_api: fastapi.FastAPI = fastapi.FastAPI()
+    
+
+class DatabaseService():
+    def __init__(self, database_api: DatabaseAPI):
+        self.api: DatabaseAPI = database_api
+        self.type: enum.DatabaseType = database_api.type
         
-
-class DatabaseAPI(BaseDatabase):
-    pass
+        self.port: enum.DatabasePort
+        self.host: enum.DatabaseHost
+        
+        match self.api.type:
+            case enum.DatabaseType.PRODUCTION:
+                self.port = enum.DatabasePort.PRODUCTION
+                self.host = enum.DatabaseHost.LOCALHOST
+            case enum.DatabaseType.DEVELOPMENT:
+                self.port = enum.DatabasePort.DEVELOPMENT
+                self.host = enum.DatabaseHost.MACHINE
+            case _:
+                raise Exception("GUHHH WHA DA FOOOOOAHAHH?? " + str(_))

@@ -19,14 +19,13 @@ cli_args: list[str] = len(sys.argv) > 2 and sys.argv[3::] or []
 match target_service:
     case odv.enum.ServiceType.DATABASE:
 
-        odv.initialize_database_service(
-            database_type=odv.enum.DatabaseType.DEVELOPMENT
+        database_service, _ = odv.initialize_database_service(
+            database_type=odv.enum.DatabaseType.DEVELOPMENT # TODO add arg check for development or production db.
         )
         
         # TODO add args for publish that use the config files.
         odv.publish_database_service(
-            api_port=odv.enum.DatabasePort.DEVELOPMENT,
-            api_host=odv.enum.DatabaseHost.LOCALHOST
+            database_service=database_service
         )
         
     case odv.enum.ServiceType.CLIENT:
@@ -35,4 +34,6 @@ match target_service:
         print("Starting guard service...")
     case odv.enum.ServiceType.WEB:
         print("Starting web service...")
+    case _:
+        print("Service not found...")
     
