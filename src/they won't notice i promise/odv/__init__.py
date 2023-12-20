@@ -38,7 +38,7 @@ def publish_database_service(database_service: database.DatabaseService) -> tupl
         tuple[bool, str]: Success/Failure, Status Message.
     """
     
-    database_service.api.initialize_peewee_connection()
+    database_service.initialize_peewee_connection()
     database_service.api.initialize_api_endpoints()
     
     # TODO thread handling probably?...
