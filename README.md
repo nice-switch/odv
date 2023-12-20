@@ -1,7 +1,7 @@
 # Overseer Data Vault
-> **What I think should be a good data/password manager.**
----
-# Requirements
+What I think should be a good data/password manager.
+
+## Requirements
 * [Python 3.11+](https://www.python.org/downloads/) 
 
 ---
@@ -16,7 +16,7 @@
 
 ---
 
-# Configuring workspace/*.json
+## Configuring workspace/*.json
 > The final steps of your setup! [Follow this if you installed on Docker](https://github.com/nice-switch/odv/blob/main/README/Docker%20Workspace%20Edit.md).
 
 TO BE CONTINUED
