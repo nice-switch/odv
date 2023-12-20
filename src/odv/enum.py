@@ -19,6 +19,7 @@ class DatabaseHost(StrEnum):
     """Available IPs to host the API."""
     MACHINE = "127.0.0.1"
     # NOTE this is potentionally unsafe, will be looking more into this.
+    #socket.gethostbyname_ex(socket.gethostname())[2][-1::][0]
     LOCALHOST = socket.gethostbyname(socket.gethostname())
 
 

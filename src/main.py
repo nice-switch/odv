@@ -21,17 +21,16 @@ cli_args: list[str] = len(sys.argv) > 2 and sys.argv[3::] or []
 
 match target_service:
     case odv.enum.ServiceType.DATABASE:
-        print("Starting database service...")
-        
-        # TODO initialize_database_service shouldn't run everytime, will have to put into an arg.
+
         odv.initialize_database_service(
-            database_type=odv.enum.DatabaseType.DEVELOPMENT,
-            api_port=odv.enum.DatabasePort.DEVELOPMENT,
-            api_host=odv.enum.DatabaseHost.MACHINE
+            database_type=odv.enum.DatabaseType.DEVELOPMENT
         )
         
         # TODO add args for publish that use the config files.
-        odv.publish_database_service()
+        odv.publish_database_service(
+            api_port=odv.enum.DatabasePort.DEVELOPMENT,
+            api_host=odv.enum.DatabaseHost.LOCALHOST
+        )
         
     case odv.enum.ServiceType.CLIENT:
         print("Starting client service...")
