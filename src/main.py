@@ -35,7 +35,6 @@ match target_service:
         
     case odv.enum.ServiceType.CLIENT:
         print("Starting client service...")
-        
     case odv.enum.ServiceType.GUARD:
         print("Starting guard service...")
     case odv.enum.ServiceType.WEB:
