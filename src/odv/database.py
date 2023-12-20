@@ -10,6 +10,12 @@ class DatabaseAPI():
         self.type: enum.DatabaseType = database_type
         self.fast_api: fastapi.FastAPI = fastapi.FastAPI()
     
+    def initialize_peewee_connection(self):
+        pass
+    
+    def initialize_api_endpoints(self):
+        pass
+    
 
 class DatabaseService():
     def __init__(self, database_api: DatabaseAPI):
