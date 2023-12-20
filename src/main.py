@@ -9,19 +9,16 @@ if (target_service is None):
     # TODO add available args list with error message.
     raise Exception("No target service to initialize...")
 
-# Just some post processing on the string.
+# Just some post processing on the string. UPPER -> lower.
 target_service = target_service.lower()
 
-# Checks if more args are available after target_service then creates a list with the extra args or a empty list when none are available.
+# Looks for more args after target_service, when more are available it makes a new list with the args, or makes an empty list when none are available.
 cli_args: list[str] = len(sys.argv) > 2 and sys.argv[3::] or []
 
-
 # TODO Make a TOML/JSON file for all configuration.
-
-
 match target_service:
     case odv.enum.ServiceType.DATABASE:
-        
+
         odv.initialize_database_service(
             database_type=odv.enum.DatabaseType.DEVELOPMENT
         )
