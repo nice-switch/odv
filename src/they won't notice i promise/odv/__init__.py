@@ -1,8 +1,8 @@
 import threading, uvicorn
 
-from odv import enum, database
+from odv import data, enum
 
-def initialize_database_service(database_type: enum.DatabaseType) -> tuple[database.DatabaseService | None, str]:
+def initialize_database_service(database_type: enum.DatabaseType) -> tuple[data.DatabaseService | None, str]:
     """Sets up FastAPI, loads peewee connection with a SQLite database.
 
     Args:
@@ -13,11 +13,11 @@ def initialize_database_service(database_type: enum.DatabaseType) -> tuple[datab
     """
     
     print(f"Initializing database, target: {database_type.name}")
-    database_api = database.DatabaseAPI(
+    database_api = data.DatabaseAPI(
         database_type=database_type
     )
     
-    database_service = database.DatabaseService(
+    database_service = data.DatabaseService(
         database_api=database_api
     )
     
@@ -27,7 +27,7 @@ def initialize_database_service(database_type: enum.DatabaseType) -> tuple[datab
     
     
 
-def publish_database_service(database_service: database.DatabaseService) -> tuple[bool, str]:
+def publish_database_service(database_service: data.DatabaseService) -> tuple[bool, str]:
     """Starts a new thread with uvicorn and runs the FastAPI instance made by initialize_database_service.
     
     Args:
