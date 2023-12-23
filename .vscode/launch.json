@@ -18,7 +18,6 @@
             "type": "python",
             "request": "launch",
             "program": "./src/main.py",
-            "args": ["database", "production"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
