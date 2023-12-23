@@ -1,7 +1,3 @@
-# OKAY.
-# NOW HEAR ME OUT!
+import odv
 
-"""
-    OKAY SO...
-    remember how i said i was going to do things?...
-"""
+# Okay, we're back at it again.
