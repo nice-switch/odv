@@ -1,3 +1,7 @@
+# THIS IS A WIP
+Nothing is functional and it's all experimental.
+Nothing in this project is secure for real-world use until I'm done.
+
 # Overseer Data Vault
 What I think should be a good data/password manager.
 
