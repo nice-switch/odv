@@ -4,5 +4,8 @@ import odv
 
 odv.cli.execute(
     service=odv.enum.ServiceType.DATABASE,
-    args=[]
+    args=[
+        odv.enum.ExecutionType.DEBUG,
+        odv.enum.DatabaseType.SQLITE
+    ]
 )

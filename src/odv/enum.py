@@ -6,7 +6,12 @@ class ServiceType(enum.StrEnum):
     AUTHORIZATION = "authorization"
 
 
-class DatabaseType(enum.StrEnum):
-    PRODUCTION = "production"
+class ExecutionType(enum.StrEnum):
     DEVELOPMENT = "development"
+    PRODUCTION = "production"
+    DEBUG = "debug"
     
+
+class DatabaseType(enum.StrEnum):
+    SQLITE = "sqlite"
+    POSTGRES = "postgres"
