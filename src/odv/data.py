@@ -25,7 +25,7 @@ class DatabaseService():
         self.execution_type: enum.ExecutionType = execution_type
         self.database_type: enum.DatabaseType = database_type
 
-        # TODO this is a much much better way to do this probably.
+        # TODO there is a much, much better way to do this.
         match execution_type:
             case enum.ExecutionType.PRODUCTION:
                 print("DatabaseService is in PRODUCTION mode!")
