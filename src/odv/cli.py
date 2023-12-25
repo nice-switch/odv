@@ -16,13 +16,13 @@ def execute(service: enum.ServiceType, args: list[str | enum.DatabaseType | enum
             database_type: enum.DatabaseType | None = None
             
             for arg in args:
-                if type(arg) is enum.ExecutionType:
-                    execution_type = arg
-                elif type(arg) is enum.DatabaseType:
-                    database_type = arg
-                elif type(arg) is str:
-                    # TODO create handle
-                    pass
+                match type(arg):
+                    case enum.ExecutionType:
+                        execution_type = arg
+                    case enum.DatabaseType:
+                        database_type = arg
+                    case _:
+                        pass
             
             database_service = data.initialize_database(
                 execution_type=execution_type,

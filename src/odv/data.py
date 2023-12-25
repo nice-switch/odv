@@ -2,6 +2,9 @@ import peewee
 
 from odv import enum
 
+database_connection: peewee.SqliteDatabase | peewee.PostgresqlDatabase | None = None
+
+
 class DatabaseService():
     """Main interface for data management.
     """
@@ -15,6 +18,11 @@ class DatabaseService():
         """
         self.execution_type: enum.ExecutionType = execution_type
         self.database_type: enum.DatabaseType = database_type
+
+        
+
+    
+
 
 
 def initialize_database(execution_type: enum.ExecutionType, database_type: enum.DatabaseType) -> DatabaseService | None:
