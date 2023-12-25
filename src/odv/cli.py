@@ -8,7 +8,7 @@ def execute(service: enum.ServiceType, args: list[str | enum.DatabaseType | enum
 
     Args:
         service (odv.enum.ServiceType): Target service.
-        args (list[str]): Args for the target service.
+        args (list[str | odv.enum.DatabaseType | odv.enum.ExecutionType]): Args for the target service.
     """
     match service:
         case enum.ServiceType.DATABASE:
