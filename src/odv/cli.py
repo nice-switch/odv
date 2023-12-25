@@ -24,11 +24,13 @@ def execute(service: enum.ServiceType, args: list[str | enum.DatabaseType | enum
                     case _:
                         pass
             
+            
             database_service = data.initialize_database(
                 execution_type=execution_type,
                 database_type=database_type
             )
             
+            print("DatabaseService creation & initialization complete.")
             
         case enum.ServiceType.AUTHORIZATION:
             print("AUTH")
