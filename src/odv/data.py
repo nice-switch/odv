@@ -21,40 +21,23 @@ class DatabaseService():
             execution_type (enum.ExecutionType): Changes how the service will run. Ports, logging, etc,.
             database_type (enum.DatabaseType): What database to use when launching the application.
         """
-        print("DatabaseService created! Initializing...")
         self.execution_type: enum.ExecutionType = execution_type
         self.database_type: enum.DatabaseType = database_type
 
+        print(f"DatabaseService created! Attempting to establish a {database_type} connection.")
+
         # TODO there is a much, much better way to do this.
-        match execution_type:
-            case enum.ExecutionType.PRODUCTION:
-                print("DatabaseService is in PRODUCTION mode!")
-                match database_type:
-                    case enum.DatabaseType.SQLITE:
-                        print("DatabaseService establishing SQLITE connection with data/" + self.execution_type)
-                        database_connection = peewee.SqliteDatabase("data/" + self.execution_type)
-                    case enum.DatabaseType.POSTGRES:
-                        print("DatabaseService establishing POSTGRESQL connection with data/" + self.execution_type)
-                        database_connection = peewee.PostgresqlDatabase("data/" + self.execution_type)
-                    case _:
-                        pass
-                    
-            case enum.ExecutionType.DEVELOPMENT:
-                print("DatabaseService in DEVELOPMENT mode!")
-                match database_type:
-                    case enum.DatabaseType.SQLITE:
-                        print("DatabaseService establishing SQLITE connection with data/" + self.execution_type)
-                        database_connection = peewee.SqliteDatabase("data/" + self.execution_type)
-                    case enum.DatabaseType.POSTGRES:
-                        print("DatabaseService establishing POSTGRESQL connection with data/" + self.execution_type)
-                        database_connection = peewee.PostgresqlDatabase("data/" + self.execution_type)
-                    case _:
-                        pass
+        match database_type:
+            case enum.DatabaseType.SQLITE:
+                database_connection = peewee.SqliteDatabase("data/" + execution_type)
+            case enum.DatabaseType.POSTGRES:
+                # TODO compatibility for this should be plug and play but not sure. Will test this later
+                raise Exception("Postgresql is not fully tested yet!")
+                #database_connection = peewee.PostgresqlDatabase("data/" + execution_type)
+            case _:
+                raise Exception("Expected a valid DatabaseType!")
         
-        print(f"DatabaseService __init__ finished!: {execution_type}, {database_type}")
-
-    
-
+        print("DatabaseService connected and initialized!")
 
 
 def initialize_database(execution_type: enum.ExecutionType, database_type: enum.DatabaseType) -> DatabaseService | None:

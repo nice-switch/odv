@@ -30,7 +30,6 @@ def execute(service: enum.ServiceType, args: list[str | enum.DatabaseType | enum
                 database_type=database_type
             )
             
-            print("DatabaseService creation & initialization complete.")
             
         case enum.ServiceType.AUTHORIZATION:
             print("AUTH")
