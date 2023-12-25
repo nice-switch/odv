@@ -2,6 +2,10 @@
 Nothing is functional and it's all experimental.
 Nothing in this project is secure for real-world use until I'm done.
 
+# OPEN TO ADVICE
+Advice, tips, critics are all welcome!
+I REALLY MEAN IT(I want to make sure at a minimum the encryption algorithms and how I use them are good)
+
 # Overseer Data Vault
 What I think should be a good data/password manager.
 
