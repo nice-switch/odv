@@ -14,6 +14,7 @@ class DatabaseService():
         
     def create_database_connection(self):
         print(f"Creating {self.database_type.name} database connection...")
+        
         match self.database_type:
             case DatabaseType.SQLITE:
                 self.connection_path = self.environment_type is EnvironmentType.DEVELOPMENT and SqliteDatabasePath.DEVELOPMENT or SqliteDatabasePath.PRODUCTION
@@ -28,3 +29,6 @@ class DatabaseService():
                 raise Exception(f"{self.database_type.name} database connection failed!")
             case _:
                 print(f"{self.database_type.name} connection was successfully created!")
+    
+    def validate_database_models(self):
+        pass

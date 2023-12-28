@@ -44,3 +44,4 @@ def execute(service_type: enum.ServiceType, launch_parameters: list[enum.LaunchP
         case enum.ServiceType.DATABASE:
             database_service: database.DatabaseService | None = database.create_database_service(debug_type=debug_type, environment_type=environment_type, database_type=database_type)
             database_service.create_database_connection()
+            database_service.validate_database_models()
