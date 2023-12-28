@@ -1,5 +1,6 @@
 import enum # NOTE This is Python's builtin enum.
 # NOTE from odv import enum This is the applications enum.
+from odv.enum import database
 
 class ServiceType(enum.Enum):
     """Available services to launch.

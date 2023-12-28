@@ -1,12 +1,14 @@
-from odv import enum
-from odv.database import model, service
+from odv.enum import DebugType, EnvironmentType, DatabaseType
+from odv.database.service import DatabaseService
 
 
-def create_database_service(debug_type: enum.DebugType, environment_type: enum.EnvironmentType, database_type: enum.DatabaseType) -> service.DatabaseService | None:
-    database_service = service.DatabaseService(
+def create_database_service(debug_type: DebugType, environment_type: EnvironmentType, database_type: DatabaseType) -> DatabaseService | None:
+    database_service = DatabaseService(
         debug_type=debug_type,
         environment_type=environment_type,
         database_type=database_type,
     )
+    
+    return database_service
     
     

@@ -1,23 +1,6 @@
 from odv import enum, database
 
-# NOTE do i make two versions of the CLI/interface? One sync & one async?
-
-def __get_datatype_from_parameters(parameters: list[enum.LaunchParameter]) -> enum.DatabaseType | None:
-    """_summary_
-
-    Args:
-        parameters (list[enum.LaunchParameter]): _description_
-
-    Returns:
-        enum.DatabaseType | None: _description_
-    """
-    for launch_parameter in parameters:
-        match type(launch_parameter):
-            case enum.DatabaseType:
-                return launch_parameter
-
-
-def __convert_parameters_to_ordered_tuple(parameters: list[enum.LaunchParameter]) -> tuple[enum.DebugType | enum.DebugType.NO_OUTPUT, enum.EnvironmentType | enum.EnvironmentType.DEVELOPMENT, enum.DatabaseType | enum.DatabaseType.SQLITE]:
+def __convert_parameters_to_ordered_tuple(parameters: list[enum.LaunchParameter]) -> tuple[enum.DebugType, enum.EnvironmentType, enum.DatabaseType | None]:
     """_summary_
 
     Args:
@@ -59,5 +42,5 @@ def execute(service_type: enum.ServiceType, launch_parameters: list[enum.LaunchP
     
     match service_type:
         case enum.ServiceType.DATABASE:
-            database_service: database.service.DatabaseService | None = database.create_database_service(debug_type=debug_type, environment_type=environment_type, database_type=database_type)
-            
+            database_service: database.DatabaseService | None = database.create_database_service(debug_type=debug_type, environment_type=environment_type, database_type=database_type)
+            database_service.create_database_connection()
