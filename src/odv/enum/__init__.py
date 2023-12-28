@@ -1,8 +1,6 @@
 import enum # NOTE This is Python's builtin enum.
 # NOTE from odv import enum This is the applications enum.
 
-from odv.enum import debug, database, api
-
 class ServiceType(enum.Enum):
     """Available services to launch.
 
@@ -11,51 +9,60 @@ class ServiceType(enum.Enum):
         The database service.
     """
     DATABASE = ["db", "database"]
-    
+
 
 class LaunchParameter(enum.Enum):
-    """Available launch parameters through interface.
+    pass
+
+
+class EnvironmentType(LaunchParameter):
+    """Available environments for launch.
     
     ### Environment Options:
-    LaunchParameter.DEVELOPMENT_ENVIRONMENT: 
+    EnvironmentType.DEVELOPMENT_ENVIRONMENT: 
         Will start the application in development environment including database targets.    
             
-    LaunchParameter.PRODUCTION_ENVIRONMENT:
+    EnvironmentType.PRODUCTION_ENVIRONMENT:
         Will start the application in production environment including database targets.
+    """
+    DEVELOPMENT = ["dev", "development"]
+    PRODUCTION = ["prod", "production"]
 
-    
-    ### Database Options:
-    LaunchParameter.SQLITE_DATABASE_TYPE
-        Will use a sqlite database for managing data.
-    
-    LaunchParameter.POSTGRES_DATABASE_TYPE
-        Will use a postgres database for managing data.
-    
-    
+
+class DebugType(LaunchParameter):
+    """Debug types available for launch.
+
     ### Debug Options:
-    LaunchParameter.NO_DEBUG_OUTPUT:
+    DebugType.NO_DEBUG_OUTPUT:
         No console output will be made when launched, only errors & rogue outputs will be shown.
             
-    LaunchParameter.PARTIAL_DEBUG_OUTPUT:
+    DebugType.PARTIAL_DEBUG_OUTPUT:
         Will show bare minimum information when there is activity.
             
-    LaunchParameter.FULL_DEBUG_OUTPUT:
+    DebugType.FULL_DEBUG_OUTPUT:
          Will show all non-sensitive information available in output when there is activity.
         
-    LaunchParameter.SENSITIVE_DEBUG_OUTPUT:
+    DebugType.SENSITIVE_DEBUG_OUTPUT:
         Will show all possible output including sensitive information like API-keys etc,.
     
     """
-    DEVELOPMENT_ENVIRONMENT = ["dev", "development"]
-    PRODUCTION_ENVIRONMENT = ["prod", "production"]
+    NO_OUTPUT = ["nodebug", "ndebug"]
     
-    NO_DEBUG_OUTPUT = ["nodebug", "ndebug"]
+    PARTIAL_OUTPUT = ["partialdebug", "pdebug"]
+    FULL_OUTPUT = ["fulldebug", "fdebug"]
     
-    PARTIAL_DEBUG_OUTPUT = ["partialdebug", "pdebug"]
-    FULL_DEBUG_OUTPUT = ["fulldebug", "fdebug"]
-    
-    SENSITIVE_DEBUG_OUTPUT = ["sensitivedebug", "sdebug"]
-    
-    SQLITE_DATABASE_TYPE = ["sqlite"]
-    POSTGRES_DATABASE_TYPE = ["postgres"]
+    SENSITIVE_OUTPUT = ["sensitivedebug", "sdebug"]
 
+
+class DatabaseType(LaunchParameter):
+    """Database types available for launch.
+
+    ### Database Options:
+    DatabaseType.SQLITE_DATABASE_TYPE
+        Will use a sqlite database for managing data.
+    
+    DatabaseType.POSTGRES_DATABASE_TYPE
+        Will use a postgres database for managing data.
+    """
+    SQLITE = "sqlite"
+    POSTGRES = "postgres"
