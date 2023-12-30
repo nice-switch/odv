@@ -1,14 +1,16 @@
 import odv
 
+from odv.enum import database as db_enum
+
 dev_db_service = odv.database.service.DatabaseService(
-    database_type=odv.enum.database.DatabaseType.SQLITE,
-    database_info=odv.enum.database.DatabaseInfo.DEVELOPMENT_SQLITE_PATH
+    database_type=db_enum.DatabaseType.SQLITE,
+    database_info=db_enum.DatabaseInfo.DEVELOPMENT_SQLITE_PATH
 )
 
 
 prod_db_service = odv.database.service.DatabaseService(
-    database_type=odv.enum.database.DatabaseType.SQLITE,
-    database_info=odv.enum.database.DatabaseInfo.PRODUCTION_SQLITE_PATH
+    database_type=db_enum.DatabaseType.SQLITE,
+    database_info=db_enum.DatabaseInfo.PRODUCTION_SQLITE_PATH
 )
 
 
