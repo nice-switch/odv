@@ -1,14 +1,14 @@
 import enum
 
-class DatabasePath(enum.Enum):
-    pass
+
+class DatabaseType(enum.Enum):
+    SQLITE = "sqlite"
+    # TODO add more
 
 
-class SqliteDatabasePath(DatabasePath):
-    PRODUCTION = "data/production_data.sqlite"
-    DEVELOPMENT = "data/development_data.sqlite"
-    
+class DatabaseInfo(enum.Enum):
+    # TODO add config loader
+    DEVELOPMENT_SQLITE_PATH = "data/development_data.sqlite"
+    PRODUCTION_SQLITE_PATH = "data/production_data.sqlite"
 
-class PostgresDatabasePath(DatabasePath):
-    PRODUCTION = "??"
-    DEVELOPMENT = "??"
+

@@ -1,15 +1,24 @@
 import peewee
 
-database_connection: peewee.SqliteDatabase | peewee.PostgresqlDatabase | None = None
+# NOTE/TODO is this okay??...
+database_connections: dict[ str: 
+    peewee.SqliteDatabase | 
+    peewee.PostgresqlDatabase | 
+    peewee.MySQLDatabase
+] = {}
 
 class BaseModel(peewee.Model):
+    def __init__(self, connection_index: str):
+        self.connection_index = connection_index
+    
     class Meta:
-        database = database_connection
+        def __init__(self):
+            self.database = database_connections[self.connection_index]
 
 
-class AccountModel(BaseModel):
-    username = peewee.TextField(primary_key=True, index=True)
-    password = peewee.TextField() # NOTE input processing will handle lengths.
-    email = peewee.TextField()
-    salt = peewee.TextField()
-    data = peewee.TextField()
+
+"""class BaseModel(peewee.Model):
+    target_path: str = ""
+    class Meta:
+        def __init__():
+            database = database_connections[target_path]"""
