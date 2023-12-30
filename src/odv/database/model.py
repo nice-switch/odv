@@ -1,21 +1,24 @@
 import peewee
 
+from odv.enum.database import DatabaseInfo
+
 # NOTE/TODO is this okay??...
-database_connections: dict[ str: 
-    peewee.SqliteDatabase | 
-    peewee.PostgresqlDatabase | 
-    peewee.MySQLDatabase
-] = {}
+database_connection: peewee.SqliteDatabase | peewee.PostgresqlDatabase | peewee.MySQLDatabase | None = peewee.SqliteDatabase(":memory:")
 
 class BaseModel(peewee.Model):
-    def __init__(self, connection_index: str):
-        self.connection_index = connection_index
-    
     class Meta:
-        def __init__(self):
-            self.database = database_connections[self.connection_index]
+        database = database_connection
+
+class AccountData(BaseModel):
+    username = peewee.TextField(primary_key=True,index=True,unique=True)
+    password = peewee.TextField()
+    salt = peewee.TextField()
+    data = peewee.TextField()
 
 
+class VaultData(BaseModel):
+    id = peewee.TextField(primary_key=True, index=True, unique=True)
+    data = peewee.TextField()
 
 """class BaseModel(peewee.Model):
     target_path: str = ""
